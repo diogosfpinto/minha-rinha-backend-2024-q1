@@ -1,0 +1,1 @@
+INSERT INTO cliente (id, limite, saldoInicial) VALUES ('1', '100000', '0');
