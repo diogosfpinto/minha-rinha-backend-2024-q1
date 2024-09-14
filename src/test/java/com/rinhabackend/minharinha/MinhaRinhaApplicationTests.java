@@ -1,4 +1,4 @@
-package com.rinhabackend.MinhaRinha;
+package com.rinhabackend.minharinha;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
