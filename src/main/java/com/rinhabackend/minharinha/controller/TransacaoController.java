@@ -2,16 +2,29 @@ package com.rinhabackend.minharinha.controller;
 
 import com.rinhabackend.minharinha.dto.RespostaTransacaoDTO;
 import com.rinhabackend.minharinha.dto.TransacaoDTO;
+import com.rinhabackend.minharinha.model.Cliente;
+import com.rinhabackend.minharinha.service.ClienteService;
+import com.rinhabackend.minharinha.service.TransacaoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TransacaoController {
 
+
+    @Autowired
+    private ClienteService clienteService;
+    @Autowired
+    private TransacaoService transacaoService;
+
     @PostMapping("/clientes/{id}/transacoes")
-    public ResponseEntity<RespostaTransacaoDTO> novaTransacao(@RequestBody TransacaoDTO transacaoDTO){
-        return ResponseEntity.ok(new RespostaTransacaoDTO(1, 1));
+    public ResponseEntity<RespostaTransacaoDTO> novaTransacao(@RequestBody TransacaoDTO transacaoDTO,
+                                                              @PathVariable(name = "id") Integer id) {
+
+        Cliente cliente = clienteService.getClienteById(id);
+
+        return ResponseEntity.ok(transacaoService.novaTransacao(transacaoDTO, cliente));
     }
 }

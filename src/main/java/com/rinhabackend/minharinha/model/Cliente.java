@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@AllArgsConstructor
 @Getter
 @Setter
 public class Cliente {
