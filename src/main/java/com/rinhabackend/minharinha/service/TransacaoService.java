@@ -4,7 +4,6 @@ import com.rinhabackend.minharinha.dto.RespostaTransacaoDTO;
 import com.rinhabackend.minharinha.dto.TransacaoDTO;
 import com.rinhabackend.minharinha.model.Cliente;
 import com.rinhabackend.minharinha.model.Transacao;
-import com.rinhabackend.minharinha.repository.ClienteRepository;
 import com.rinhabackend.minharinha.repository.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +20,7 @@ public class TransacaoService {
         Integer saldo = cliente.getSaldo();
 
         Transacao transacao = new Transacao();
+        transacao.setCliente(cliente);
         transacao.setDescricao(transacaoDTO.descricao());
         transacao.setTipo(transacaoDTO.tipo());
         transacao.setValor(transacaoDTO.valor());
