@@ -5,8 +5,8 @@ import com.rinhabackend.minharinha.dto.TransacaoDTO;
 import com.rinhabackend.minharinha.model.Cliente;
 import com.rinhabackend.minharinha.service.ClienteService;
 import com.rinhabackend.minharinha.service.TransacaoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +20,7 @@ public class TransacaoController {
     private TransacaoService transacaoService;
 
     @PostMapping("/clientes/{id}/transacoes")
-    public ResponseEntity<RespostaTransacaoDTO> novaTransacao(@RequestBody TransacaoDTO transacaoDTO,
+    public ResponseEntity<RespostaTransacaoDTO> novaTransacao(@Valid @RequestBody TransacaoDTO transacaoDTO,
                                                               @PathVariable(name = "id") Integer id) {
 
         Cliente cliente = clienteService.getClienteById(id);
