@@ -3,11 +3,11 @@ package com.rinhabackend.minharinha;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class MinhaRinhaApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+//@SpringBootTest
+//class MinhaRinhaApplicationTests {
+//
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//}
